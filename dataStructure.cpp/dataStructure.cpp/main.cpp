@@ -1,8 +1,12 @@
-#include <iostream>
-
-using namespace std;
+#include "Header.h"
 
 int main(void)
 {
-	cout << "Test" << endl;
+	char a;
+	//cout << "Test" << endl;
+	//testArrayStack();
+	//testLLStack();
+	//testBST();
+	testArrayQueue();
+	cin >> a;
 }
