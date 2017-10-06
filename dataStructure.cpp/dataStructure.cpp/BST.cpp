@@ -48,38 +48,38 @@ public:
 	{
 
 	}
-	bool find(int val)
+	BSTNode * find(int val)
 	{
 		if (val == data)
-			return true;
+			return this;
 		if (val < data && left) //it's less than us, and we have a left child
 			return left->find(val);
 		if (val > data && right)
 			return right->find(val);
-		return false;
+		return nullptr;
 	}
 	void inOrderTraversal()
 	{
-		if (left != NULL)
+		if (left != nullptr)
 			left->inOrderTraversal();
 		cout << data << " ";
-		if (right != NULL)
+		if (right != nullptr)
 			right->inOrderTraversal();
 	}
 	void postOrderTraversal()
 	{
-		if (left != NULL)
+		if (left != nullptr)
 			left->postOrderTraversal();
-		if (right != NULL)
+		if (right != nullptr)
 			right->postOrderTraversal();
 		cout << data << " ";
 	}
 	void preOrderTraversal()
 	{
 		cout << data << " ";
-		if (left != NULL)
+		if (left != nullptr)
 			left->preOrderTraversal();
-		if (right != NULL)
+		if (right != nullptr)
 			right->preOrderTraversal();
 	}
 	void levelOrderTraversal()
@@ -90,9 +90,9 @@ public:
 		while (!myQ.empty()) {
 			temp = myQ.front();
 			cout << temp->data << " ";
-			if (temp->left != NULL)
+			if (temp->left != nullptr)
 				myQ.push(temp->left);
-			if (temp->right != NULL)
+			if (temp->right != nullptr)
 				myQ.push(temp->right);
 			myQ.pop();
 		}
@@ -109,6 +109,8 @@ void testBST()
 	root.add(3);
 	root.add(11);
 	root.add(15);
+	assert(root.find(5) != nullptr);
+	assert(root.find(18) == nullptr);
 	//root.find(5) == true ? cout << "Find works" << endl : cout << "Find doesn't work" << endl;
 	//root.find(20) == false ? cout << "Find works" << endl : cout << "Find doesn't work" << endl;
 	cout << "In Order Traversal: ";

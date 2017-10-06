@@ -38,8 +38,12 @@ void testArrayStack() {
 	as.push(4);
 	as.push(5);
 	//should test push independantly
-	as.top() != 5 ? cout << "Error with top()" << endl : cout << "top() works" << endl;
-	as.pop() != 5 ? cout << "Error with pop()" << endl : cout << "pop() works" << endl;
-	as.isEmpty() ? cout << "Error with empty()" << endl : cout << "empty() works" << endl;
+	assert(as.top() == 5 && "Error with top()");
+	assert(as.pop() == 5 && "Error with pop()");
+	assert(as.isEmpty() == false && "Error with empty()");
+	//as.top() != 5 ? cout << "Error with top()" << endl : cout << "top() works" << endl;
+	//as.pop() != 5 ? cout << "Error with pop()" << endl : cout << "pop() works" << endl;
+	//as.isEmpty() ? cout << "Error with empty()" << endl : cout << "empty() works" << endl;
+	cout << "Passed all asserts" << endl;
 
 }
