@@ -12,7 +12,8 @@ private:
 public:
 	ArrayQueue()
 	{
-
+		for (int i = 0; i < capacity; i++)
+			queue[i] = -1;
 	}
 	int front()
 	{
@@ -26,13 +27,13 @@ public:
 		}
 		return queue[tail-1];
 	}
-	int enqueue(int val)
+	void enqueue(int val)
 	{
 		queue[tail++] = val;
 		if (tail == capacity)	//need to wrap around
 			tail = 0;
 	}
-	int dequeue()
+	void dequeue()
 	{
 		//shouldn't need to remove the data, just move the head forward
 		head++;
@@ -43,7 +44,8 @@ public:
 	}
 	bool empty()
 	{
-		return head == tail;
+		bool full = (head == tail);
+		return full;
 	}
 	int size()
 	{
@@ -57,6 +59,14 @@ public:
 		}
 		return (tail + 1) == head;
 	}
+	void printInfo()
+	{
+		cout << "Head " << head << endl;
+		cout << "Tail " << tail << endl;
+		for (int i = 0; i < capacity; i++)
+			cout << queue[i] << "|";
+		cout << endl;
+	}
 
 };
 
@@ -65,4 +75,15 @@ void testArrayQueue()
 {
 	cout << "Test Array Queue" << endl;
 	ArrayQueue aq;
+	assert(aq.empty(), true);
+	aq.enqueue(5);
+	aq.enqueue(6);
+	aq.enqueue(15);
+	int val = aq.front();
+	assert(5, val);
+	aq.dequeue();
+	aq.printInfo();
+	aq.enqueue(10);
+	aq.enqueue(8);
+	aq.printInfo();
 }

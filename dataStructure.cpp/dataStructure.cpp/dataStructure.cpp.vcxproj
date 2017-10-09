@@ -114,6 +114,7 @@
     <ClCompile Include="ArrayQueue.cpp" />
     <ClCompile Include="ArrayStack.cpp" />
     <ClCompile Include="BST.cpp" />
+    <ClCompile Include="Graph.cpp" />
     <ClCompile Include="LLStack.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

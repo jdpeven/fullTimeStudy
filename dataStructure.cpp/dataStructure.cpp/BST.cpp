@@ -4,14 +4,14 @@
 class BSTNode {
 private:
 	int data;
-	BSTNode * left = 0;
-	BSTNode * right = 0;
+	BSTNode * left = nullptr;
+	BSTNode * right = nullptr;
 public:
 	BSTNode(int val)
 	{
 		data = val;
-		left = 0;
-		right = 0;
+		left = nullptr;
+		right = nullptr;
 	}
 	void add(int val)
 	{
@@ -44,9 +44,45 @@ public:
 			}
 		}
 	}
-	void remove()
+	bool remove(int val)
 	{
-
+		//will find the node's parent, and replace it with the child nodes left nodes largest child
+		//if it has not left node, it will replace with it's right nodes smallest child
+		//if it has neither a left nor right node. it will be deleted
+		BSTNode * parentNode = nullptr;
+		parentNode = findParent(val);
+		if (parentNode = nullptr) {
+			cout << val << " not found in tree, returning false" << endl;
+			return false;
+		}
+		//important to remember that we can't affect the parent's link to this node
+		//so a deletion will be finding a node to replace, replacing nodeToRemoves values with that,
+		//and free the other node.
+	}
+	BSTNode * findParent(int val)
+	{
+		//used in the remove function
+		if(val < data)
+			if (left != nullptr) {
+				if (left->data == val)
+					return this;
+				else
+					return left->findParent(val);
+			}
+			//the value SHOULD be in the left subtree, but it has no left child
+			else 
+				return nullptr;
+		else if (val > data)
+		{
+			if (right != nullptr) {
+				if (right->data == val)
+					return this;
+				else
+					return right->findParent(val);
+			}
+			else
+				return nullptr;
+		}
 	}
 	BSTNode * find(int val)
 	{
@@ -57,6 +93,16 @@ public:
 		if (val > data && right)
 			return right->find(val);
 		return nullptr;
+	}
+	BSTNode * getLargestChild()
+	{
+		//will be called in the remove function.
+		BSTNode * largestChild = this->right;
+		if (largestChild == nullptr)	//no right children
+			return this;				//this node is it's "largest child"
+		while (largestChild->right != nullptr)
+			largestChild = largestChild->right;
+		return largestChild;
 	}
 	void inOrderTraversal()
 	{
@@ -97,6 +143,17 @@ public:
 			myQ.pop();
 		}
 	}
+	int height()
+	{
+		//shouldn't need to check for null since it's a class method, couldn't be called on null object
+		int leftheight = 0;
+		int rightheight = 0;
+		if (left != nullptr)
+			leftheight = left->height();
+		if (right != nullptr)
+			rightheight = right->height();
+		return (rightheight > leftheight) ? rightheight + 1 : leftheight + 1;
+	}
 };
 
 void testBST()
@@ -111,6 +168,7 @@ void testBST()
 	root.add(15);
 	assert(root.find(5) != nullptr);
 	assert(root.find(18) == nullptr);
+	assert(root.height() == 4);
 	//root.find(5) == true ? cout << "Find works" << endl : cout << "Find doesn't work" << endl;
 	//root.find(20) == false ? cout << "Find works" << endl : cout << "Find doesn't work" << endl;
 	cout << "In Order Traversal: ";
