@@ -1,10 +1,27 @@
 #include "Header.h"
 #include <vector>
+#include <unordered_map>
+
+class GraphNode {
+private:
+	int data;
+	vector<GraphNode *> neighbors;
+	int id;
+public:
+	GraphNode(int val, int ident)
+	{
+		data = val;
+		id = ident;
+	}
+	int getID()
+	{
+		return id;
+	}
+};
 
 class Graph {
 private:
-
-	vector<GraphNode *> nodes;
+	unordered_map<int, GraphNode *> nodes;
 public:
 	bool dfs(int a_ID, int b_ID)
 	{
@@ -12,7 +29,7 @@ public:
 	}
 	bool bfs(int a_ID, int b_ID)
 	{
-
+		return true;
 	}
 	int **createMatrix()
 	{
@@ -38,11 +55,19 @@ public:
 	{
 		GraphNode * n;
 		n = new GraphNode(val, nodes.size());
-		nodes.push_back(n);
+		nodes[n->getID()] = n;
 	}
 	void insertUniDirectional(int a_ID, int b_ID)
 	{
-
+		GraphNode *a, *b = nullptr;
+		a = nodes[a_ID];
+		b = nodes[b_ID];
+		if (a == nullptr) {
+			cout << "Node " << a_ID << " not found" << endl;
+		}
+		if (b == nullptr) {
+			cout << "Node " << b_ID << " not found" << endl;
+		}
 	}
 	void insertBiDirectional(int a_ID, int b_ID)
 	{
@@ -50,23 +75,7 @@ public:
 	}
 };
 
-class GraphNode {
-private:
-	int data;
-	vector<GraphNode *> neighbors;
-	int id;
-public:
-	GraphNode(int val, int ident)
-	{
-		data = val;
-		id = ident;
-	}
-	int getID()
-	{
-		return id;
-	}
-	
-};
+
 
 void testGraph()
 {

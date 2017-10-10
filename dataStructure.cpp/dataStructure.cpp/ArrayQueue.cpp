@@ -86,4 +86,5 @@ void testArrayQueue()
 	aq.enqueue(10);
 	aq.enqueue(8);
 	aq.printInfo();
+	cout << "Passed all asserts" << endl;
 }

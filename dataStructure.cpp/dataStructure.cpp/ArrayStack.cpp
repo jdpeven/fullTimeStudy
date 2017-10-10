@@ -2,15 +2,28 @@
 
 class ArrayStack {
 private:
-	int stack[10];
+	int *stack;
 	int capacity = 10;
 	int size = 0;
 	int topIndex = 0;
 
 	void resize() {
 		//will be called when capacity == size
+		/*cout << "RESIZE" << endl;
+		int newSize = size * 2;
+		int * newStack = new int[newSize];
+
+		memcpy(newStack, stack, size * sizeof(int));
+
+		size = newSize;
+		delete[] stack;
+		stack = newStack;*/
 	}
 public:
+	ArrayStack()
+	{
+		stack = new int[size];
+	}
 	int top() {
 		return stack[topIndex];
 	}
@@ -36,6 +49,17 @@ void testArrayStack() {
 	ArrayStack as;
 	as.push(3);
 	as.push(4);
+	as.push(5);
+	as.push(5);
+	as.push(5);
+	as.push(5);
+	as.push(5);
+	as.push(5);
+	as.push(5);
+	as.push(5);
+	as.push(5);
+	as.push(5);
+	as.push(5);
 	as.push(5);
 	//should test push independantly
 	assert(as.top() == 5 && "Error with top()");

@@ -17,3 +17,9 @@ void testBST();
 //ArrayQueue
 void testArrayQueue();
 
+//Graph
+void testGraph();
+
+//LinkedList
+void testLL();
+
