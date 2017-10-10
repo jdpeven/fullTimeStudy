@@ -143,6 +143,30 @@ public:
 			myQ.pop();
 		}
 	}
+	void bfs()
+	{
+		queue<BSTNode *> myQ;
+		myQ.push(this);
+		while (!myQ.empty())
+		{
+			cout << myQ.front()->data << ",";
+			if (myQ.front()->left != nullptr)
+				myQ.push(myQ.front()->left);
+			if (myQ.front()->right != nullptr)
+				myQ.push(myQ.front()->right);
+			myQ.pop();
+		}
+		cout << endl;
+	}
+	void dfs()
+	{
+		cout << this->data << ",";
+		if (this->left)
+			this->left->dfs();
+		if (this->right)
+			this->right->dfs();
+
+	}
 	int height()
 	{
 		//shouldn't need to check for null since it's a class method, couldn't be called on null object
@@ -182,5 +206,10 @@ void testBST()
 	cout << endl;
 	cout << "Level Order Traversal: ";
 	root.levelOrderTraversal();
+	cout << endl;
+	cout << "Breadth First Search: ";
+	root.bfs();
+	cout << "Depth First Search: ";
+	root.dfs();
 	cout << endl;
 }

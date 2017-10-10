@@ -1,8 +1,5 @@
-﻿  LinkedList.cpp
-\\mac\home\documents\github\sideproject\fulltimestudy\datastructure.cpp\datastructure.cpp\linkedlist.cpp(207): warning C4002: too many actual parameters for macro 'assert'
-\\mac\home\documents\github\sideproject\fulltimestudy\datastructure.cpp\datastructure.cpp\linkedlist.cpp(222): warning C4002: too many actual parameters for macro 'assert'
-\\mac\home\documents\github\sideproject\fulltimestudy\datastructure.cpp\datastructure.cpp\linkedlist.cpp(223): warning C4002: too many actual parameters for macro 'assert'
-\\mac\home\documents\github\sideproject\fulltimestudy\datastructure.cpp\datastructure.cpp\linkedlist.cpp(225): warning C4002: too many actual parameters for macro 'assert'
-\\mac\home\documents\github\sideproject\fulltimestudy\datastructure.cpp\datastructure.cpp\linkedlist.cpp(226): warning C4002: too many actual parameters for macro 'assert'
+﻿  main.cpp
+  BST.cpp
+  Generating Code...
   dataStructure.cpp.vcxproj -> \\Mac\Home\Documents\GitHub\SideProject\fullTimeStudy\dataStructure.cpp\Debug\dataStructure.cpp.exe
   dataStructure.cpp.vcxproj -> \\Mac\Home\Documents\GitHub\SideProject\fullTimeStudy\dataStructure.cpp\Debug\dataStructure.cpp.pdb (Partial PDB)

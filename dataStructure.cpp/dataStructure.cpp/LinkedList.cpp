@@ -179,6 +179,45 @@ public:
 		}
 		temp->next = temp->next->next;
 	}
+
+	int valueNFromEnd(int n)
+	{
+		LLNode *fast = head;
+		LLNode *slow = head;
+		int v = -1;
+
+		for (int i = 0; i < n && fast != nullptr; i++)
+			fast = fast->next;
+		if (fast == nullptr)
+			return v;
+		while (fast != nullptr)
+		{
+			fast = fast->next;
+			slow = slow->next;
+		}
+		v = slow->data;
+		return v;
+	}
+
+	void reverse()
+	{
+		//LLNode *temp;
+
+	}
+
+	void removeValue(int val)
+	{
+		LLNode *temp = head;
+		while (temp->next != nullptr)
+		{
+			if (temp->next->data == val)
+			{
+				temp->next = temp->next->next;
+				break;
+			}
+			temp = temp->next;
+		}
+	}
 	
 	void printList()
 	{
@@ -230,5 +269,11 @@ void testLL()
 	ll.printList();
 	ll.erase(0);
 	ll.printList();
+	assert(ll.valueNFromEnd(2) == 6);
+	cout << "Trying to remove 5" << endl;
+	ll.removeValue(5);
+	ll.removeValue(33);
+	ll.printList();
+
 	
 }
