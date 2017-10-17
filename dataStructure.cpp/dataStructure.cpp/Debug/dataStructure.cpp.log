@@ -1,5 +1,6 @@
-﻿  main.cpp
-  BST.cpp
-  Generating Code...
+﻿  set.cpp
+\\mac\home\documents\github\sideproject\fulltimestudy\datastructure.cpp\datastructure.cpp\set.cpp(11): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\documents\github\sideproject\fulltimestudy\datastructure.cpp\datastructure.cpp\set.cpp(28): warning C4018: '<': signed/unsigned mismatch
+\\mac\home\documents\github\sideproject\fulltimestudy\datastructure.cpp\datastructure.cpp\set.cpp(50): warning C4018: '<': signed/unsigned mismatch
   dataStructure.cpp.vcxproj -> \\Mac\Home\Documents\GitHub\SideProject\fullTimeStudy\dataStructure.cpp\Debug\dataStructure.cpp.exe
   dataStructure.cpp.vcxproj -> \\Mac\Home\Documents\GitHub\SideProject\fullTimeStudy\dataStructure.cpp\Debug\dataStructure.cpp.pdb (Partial PDB)

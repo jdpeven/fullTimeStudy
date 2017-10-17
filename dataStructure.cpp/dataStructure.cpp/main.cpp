@@ -6,8 +6,9 @@ int main(void)
 	//cout << "Test" << endl;
 	//testArrayStack();
 	//testLLStack();
-	testBST();
+	//testBST();
 	//testArrayQueue();
 	//testLL();
+	testSet();
 	cin >> a;
 }

@@ -23,3 +23,6 @@ void testGraph();
 //LinkedList
 void testLL();
 
+//Set
+void testSet();
+
