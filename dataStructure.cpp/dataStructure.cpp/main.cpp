@@ -4,12 +4,12 @@ int main(void)
 {
 	char a;
 	//cout << "Test" << endl;
-	testArrayStack();
+	//testArrayStack();
 	//testLLStack();
 	//testBST();
 	//testArrayQueue();
 	//testLL();
-	//testSet();
+	testSet();
 	//testSort();
 	cin >> a;
 }

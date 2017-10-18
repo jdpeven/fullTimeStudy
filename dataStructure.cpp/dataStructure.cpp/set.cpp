@@ -8,16 +8,15 @@ set<int> setN(int k, set<int> s)
 	set<int>::iterator it;
 	it = s.begin();
 	it++;
-	for (int i = 0; i < s.size(); i++)
+	for (int i = 0; i < log2(k) + 1; i++)
 	{
-		if (k << i == 1)
+		if (k & (1 << i) != 0)
 		{
 			ns.insert((*it));
 		}
 		if(it != s.end())
 			it++;
 	}
-
 	return ns;
 }
 
@@ -44,11 +43,11 @@ void printSet(set<int> s)
 
 void testSet()
 {
+	//cout << (2 & (1 << 1)) << endl;
 	set<int> myset = set<int>{ 1,3,4,5,6,7,8 };
 	printSet(myset);
 	vector<set<int>> ps = powerSet(myset);
 	for (int i = 0; i < ps.size(); i++)
 		printSet(ps[i]);
 	cout << endl;
-
 }

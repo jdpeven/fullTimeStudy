@@ -28,3 +28,6 @@ void testSet();
 
 //Sorting
 void testSort();
+
+//Bits
+void testBits();
