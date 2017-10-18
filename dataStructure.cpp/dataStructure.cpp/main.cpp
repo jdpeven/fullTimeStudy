@@ -11,5 +11,6 @@ int main(void)
 	//testLL();
 	testSet();
 	//testSort();
+	//testBits();
 	cin >> a;
 }

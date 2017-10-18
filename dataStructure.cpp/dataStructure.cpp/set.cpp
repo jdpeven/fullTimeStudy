@@ -10,9 +10,10 @@ set<int> setN(int k, set<int> s)
 	it++;
 	for (int i = 0; i < log2(k) + 1; i++)
 	{
-		if (k & (1 << i) != 0)
+		if ((k >> i) & 1 != 0)
 		{
-			ns.insert((*it));
+			if(it != s.end())
+				ns.insert((*it));
 		}
 		if(it != s.end())
 			it++;
@@ -24,7 +25,7 @@ set<int> setN(int k, set<int> s)
 vector<set<int>> powerSet(set<int> s)
 {
 	vector<set<int>> ps;
-	for (int i = 0; i < s.size(); i++)
+	for (int i = 0; i < pow(2, s.size()); i++)
 		ps.push_back(setN(i, s));
 	return ps;
 }
@@ -47,7 +48,8 @@ void testSet()
 	set<int> myset = set<int>{ 1,3,4,5,6,7,8 };
 	printSet(myset);
 	vector<set<int>> ps = powerSet(myset);
-	for (int i = 0; i < ps.size(); i++)
-		printSet(ps[i]);
+	cout << "size should be " << pow(2, myset.size()) << ". Actually is: " << ps.size() << endl;
+	/*for (int i = 0; i < ps.size(); i++)
+		printSet(ps[i]);*/
 	cout << endl;
 }
