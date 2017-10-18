@@ -5,24 +5,26 @@ private:
 	int *stack;
 	int capacity = 10;
 	int size = 0;
-	int topIndex = 0;
+	int topIndex = -1;
 
 	void resize() {
-		//will be called when capacity == size
-		/*cout << "RESIZE" << endl;
-		int newSize = size * 2;
-		int * newStack = new int[newSize];
-
-		memcpy(newStack, stack, size * sizeof(int));
-
-		size = newSize;
-		delete[] stack;
-		stack = newStack;*/
+		int newCapacity = 2 * capacity;
+		int *newstack = (int*)malloc(newCapacity * sizeof(int));
+		for (int i = 0; i < capacity; i++)
+			newstack[i] = stack[i];
+		for (int j = capacity; j < newCapacity; j++)
+			newstack[j] = 0;
+		stack = newstack;
+		capacity = newCapacity;
 	}
 public:
 	ArrayStack()
 	{
-		stack = new int[size];
+		stack = (int*)malloc(capacity *sizeof(int));
+		for (int i = 0; i < capacity; i++)
+		{
+			stack[i] = 0;
+		}
 	}
 	int top() {
 		return stack[topIndex];
@@ -32,14 +34,23 @@ public:
 			resize();
 		topIndex++;
 		stack[topIndex] = newItem;
+		size++;
 	}
 	int pop() {
 		if (isEmpty())		//will possibly need to be changed
 			return -1;
+		size--;
 		return stack[topIndex--];
 	}
 	bool isEmpty() {
 		return topIndex == -1;
+	}
+	void printStack()
+	{
+		cout << '[';
+		for (int i = 0; i < capacity; i++)
+			cout << stack[i] << ',';
+		cout << ']' << endl;
 	}
 };
 
@@ -60,7 +71,7 @@ void testArrayStack() {
 	as.push(5);
 	as.push(5);
 	as.push(5);
-	as.push(5);
+	as.printStack();
 	//should test push independantly
 	assert(as.top() == 5 && "Error with top()");
 	assert(as.pop() == 5 && "Error with pop()");

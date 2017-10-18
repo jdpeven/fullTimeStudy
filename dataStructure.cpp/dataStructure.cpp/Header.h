@@ -26,3 +26,5 @@ void testLL();
 //Set
 void testSet();
 
+//Sorting
+void testSort();
